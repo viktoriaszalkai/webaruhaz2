@@ -1,0 +1,21 @@
+body{
+    margin: auto;
+}
+main{
+    /* background-color: black; */
+    place-items: center;
+
+    
+}
+.cards{
+    border-radius: 20px;
+    background-color: white;
+    margin: auto;
+    padding-top: 65px;
+    
+    
+}
+.card{
+    padding: 10px;
+    margin: 8px;
+}
