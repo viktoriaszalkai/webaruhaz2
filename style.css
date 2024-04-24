@@ -1,3 +1,4 @@
+
 body{
     margin: auto;
 }
@@ -11,11 +12,22 @@ main{
     border-radius: 20px;
     background-color: white;
     margin: auto;
-    padding-top: 65px;
-    
-    
+    place-items: center;
+    padding: auto;
 }
 .card{
     padding: 10px;
-    margin: 8px;
+    margin: 5px;
+}
+.gomb{
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 5px;
+}
+.gomb:hover{
+    background-color: black;
+    color: white;
+
 }
