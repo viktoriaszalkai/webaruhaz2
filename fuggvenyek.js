@@ -1,7 +1,7 @@
 export function articleOsszeallit(lista) {
   let txt = " ";
   for (let index = 0; index < lista.length; index++) {
-    txt += `<div class="card bg-black text-white col-md-4" style="width:250px" id = "${lista[index]}">
+    txt += `<div class="card bg-black text-white col-md-4" style="width:270px" id = "${lista[index]}">
         <img class="card-img-top" src="${lista[index].kep}">
         <div class="card-body">
           <h4 class="nev">${lista[index].nev}</h4>
