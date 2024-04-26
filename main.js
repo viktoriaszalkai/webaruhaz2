@@ -4,20 +4,29 @@ import {
   keres,
   rendezAr,
   rendezMeret,
- /*  kosarba, */
+/*   kosarbaRak,
+  kosarOsszeallit,
+  torol */
 } from "./fuggvenyek.js";
 import { tetkokLISTA } from "./adat.js";
 
 const kartyakELEM = $(".cards");
+const kosarELEM = $(".kosar");
 kartyakELEM.html(articleOsszeallit(tetkokLISTA));
 
-init(tetkokLISTA);
-export function init(lista) {
-  megjelenit(articleOsszeallit(lista));
-  rendezEsemeny();
-  /* kosarba(tetkokLISTA); */
-  /*   torolEsemeny(); */
+const kosarLISTA = [];
+init(tetkokLISTA,kosarLISTA);
+export function init(tetkokLISTA,kosarLISTA) {
+  megjelenit(articleOsszeallit(tetkokLISTA), kartyakELEM);
+ /*  megjelenit(kosarOsszeallit(kosarLISTA), kosarELEM);
+  kosarbaEsemeny(tetkokLISTA);
+  torolEsemeny(); */
 }
+
+rendezEsemeny();
+szuresEsemeny();
+
+
 /* SZURES */
 function szuresEsemeny() {
   const keresoELEM = $("#szuro");
@@ -28,9 +37,6 @@ function szuresEsemeny() {
     init(szLISTA);
   });
 }
-
-szuresEsemeny();
-init(tetkokLISTA);
 
 /* RENDEZES */
 
@@ -43,7 +49,7 @@ function rendezEsemeny() {
   const meretN = $("#meretn");
 
   arCS.on("click", function () {
-    const rLISTA = rendezM(tetkokLISTA, irany * -1);
+    const rLISTA = rendezAr(tetkokLISTA, irany * -1);
     //console.log(rLISTA);
     init(rLISTA);
   });
@@ -64,3 +70,23 @@ function rendezEsemeny() {
   });
 }
 
+/* KOSAR */
+/* function kosarbaEsemeny() {
+  const kosarbaGOMB = $(".gomb");
+  kosarbaGOMB.on("click", function (event) {
+    let aktId = event.target.id;
+    kosarbaRak(tetkokLISTA, kosarLISTA, aktId);
+    console.log(kosarLISTA)
+    init(tetkokLISTA, kosarLISTA);
+  });
+}
+
+function torolEsemeny() {
+  const torolGOMB = $(".gombTÖRÖL");
+  torolGOMB.on("click", function (event) {
+    let aktId = event.target.id;
+    torol(kosarLISTA, aktId);
+    init(tetkokLISTA, kosarLISTA);
+  });
+}
+ */
