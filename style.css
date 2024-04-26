@@ -31,3 +31,10 @@ main{
     color: white;
 
 }
+#rendezes{
+    margin-right: 5px;
+}
+#szuresEsRendezes{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
