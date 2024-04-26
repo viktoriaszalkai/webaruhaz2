@@ -62,3 +62,20 @@ export function rendezMeret(lista, irany) {
   });
   return lista;
 }
+
+/* KOSARBA HELYEZES */
+
+/* export function kosarba(lista) {
+  console.log(lista)
+  let txt ="Kosár tartalma"; 
+  const kosarbaGOMB = $(".gomb");
+  kosarbaGOMB.on("click", function(event){
+    let aktId = Number(lista[event.target.id]);
+    txt += `<tr>
+              <td>${lista[aktId.nev]}</td>
+              <td>${lista[aktId.ar]} ft</td>
+            </tr>`
+    console.log(txt)
+  });
+}
+ */

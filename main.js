@@ -4,17 +4,18 @@ import {
   keres,
   rendezAr,
   rendezMeret,
+ /*  kosarba, */
 } from "./fuggvenyek.js";
 import { tetkokLISTA } from "./adat.js";
 
 const kartyakELEM = $(".cards");
 kartyakELEM.html(articleOsszeallit(tetkokLISTA));
 
-let irany = 1; /* 1 = novekvő rendezés, -1 = csokkeno */
 init(tetkokLISTA);
 export function init(lista) {
   megjelenit(articleOsszeallit(lista));
   rendezEsemeny();
+  /* kosarba(tetkokLISTA); */
   /*   torolEsemeny(); */
 }
 /* SZURES */
@@ -32,14 +33,17 @@ szuresEsemeny();
 init(tetkokLISTA);
 
 /* RENDEZES */
+
+let irany = 1; /* 1 = novekvő rendezés, -1 = csokkeno */
 rendezEsemeny();
 function rendezEsemeny() {
   const arCS = $("#csokkeno");
   const arN = $("#novekvo");
   const meretCS = $("#meretcs");
   const meretN = $("#meretn");
+
   arCS.on("click", function () {
-    const rLISTA = rendezM(tetkokLISTA, irany*-1);
+    const rLISTA = rendezM(tetkokLISTA, irany * -1);
     //console.log(rLISTA);
     init(rLISTA);
   });
@@ -49,7 +53,7 @@ function rendezEsemeny() {
     init(rLISTA);
   });
   meretCS.on("click", function () {
-    const rLISTA = rendezMeret(tetkokLISTA, irany*-1);
+    const rLISTA = rendezMeret(tetkokLISTA, irany * -1);
     //console.log(rLISTA);
     init(rLISTA);
   });
@@ -59,3 +63,4 @@ function rendezEsemeny() {
     init(rLISTA);
   });
 }
+

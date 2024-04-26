@@ -1,65 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Szalkai Viktória</title>
     <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
-  
+
   <body>
     <main>
-    <header>
-
-    </header>
-        <nav class="navbar navbar-expand-sm bg-black navbar-dark">
-            <div class="container-fluid">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#">Termékeink</a>
-                  </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kosár</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Személyes adatok</a>
-                  </li>
-                </ul>
-                <div id="szuresEsRendezes">
-                  <div id="rendezes" class="dropdown">
-                      <button id="rendezes" type="button" class="btn bg-white color-blak dropdown-toggle" data-bs-toggle="dropdown">
-                        Rendezés
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li><a id="meretn" class="dropdown-item" href="#">Méret szerint növekvő</a></li>
-                        <li><a id="meretcs" class="dropdown-item" href="#">Méret szerint csökkenő</a></li>
-                        <li><a id="novekvo" class="dropdown-item" href="#">Ár szerint növekvő</a></li>
-                        <li><a id="csokkeno" class="dropdown-item" href="#">Ár szerint csökkenő</a></li>
-                      </ul>
-                    </div>
-                  <form>
-                    <div class="be">
-                      <input class="form-control me-2 " type="text" id="szuro" name="szuro" placeholder="keresés"/>
-                    </div>
-                  </form>
-                </div>
+      <header></header>
+      <nav class="navbar navbar-expand-sm bg-black navbar-dark">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Termékeink</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Kosár</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Személyes adatok</a>
+            </li>
+          </ul>
+          <div id="szuresEsRendezes">
+            <div id="rendezes" class="dropdown">
+              <button
+                id="rendezes"
+                type="button"
+                class="btn bg-white color-blak dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                Rendezés
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a id="meretn" class="dropdown-item" href="#"
+                    >Méret szerint növekvő</a
+                  >
+                </li>
+                <li>
+                  <a id="meretcs" class="dropdown-item" href="#"
+                    >Méret szerint csökkenő</a
+                  >
+                </li>
+                <li>
+                  <a id="novekvo" class="dropdown-item" href="#"
+                    >Ár szerint növekvő</a
+                  >
+                </li>
+                <li>
+                  <a id="csokkeno" class="dropdown-item" href="#"
+                    >Ár szerint csökkenő</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <form>
+              <div class="be">
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  id="szuro"
+                  name="szuro"
+                  placeholder="keresés"
+                />
               </div>
-            </nav>
-    <div class="cards container row col-md-12 justify-content-center">
-      
-    </div>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="cards container row col-md-12 justify-content-center"></div>
+      <div class="kosar">
         
-
-    <aside>
-
-    </aside>
+      </div>
     </main>
-
-</body>
+  </body>
 </html>
