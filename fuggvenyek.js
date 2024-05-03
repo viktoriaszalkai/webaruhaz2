@@ -1,7 +1,9 @@
+import { tetkokLISTA } from "./adat.js";
+
 export function articleOsszeallit(lista) {
   let txt = " ";
   for (let index = 0; index < lista.length; index++) {
-    txt += `<div class="card bg-black text-white col-md-4" style="width:270px">
+    txt += `<div class="card bg-black text-white col-md-4" style="width:270px" id = "c${index}">
         <img class="card-img-top" src="${lista[index].kep}">
         <div class="card-body">
           <h4 class="nev">${lista[index].nev}</h4>
@@ -10,7 +12,7 @@ export function articleOsszeallit(lista) {
             <li class="meret">méret: ${lista[index].meret} cm</li>
             <li class="szin">szín: ${lista[index].szin}</li>
           </ul>
-          <button id = "${lista[index]}" type="button" class="gomb">Kosárba</button>
+          <button id = "k${index}" type="button" class="gomb">Kosárba</button>
         </div>
       </div>`;
   }
@@ -20,7 +22,6 @@ export function articleOsszeallit(lista) {
 export function megjelenit(txt, hova) {
   hova.html(txt);
 }
-
 
 export function keres(lista, keresoSzoveg) {
   const szurtLISTA = lista.filter(function (tetko) {
@@ -63,12 +64,28 @@ export function rendezMeret(lista, irany) {
 }
 
 /* KOSARBA HELYEZES */
+export function kosarOsszeallit(lista) {
+  console.log(lista)
+  let txt = "<table class = 'table'>";
+  txt += "<h4>Kosár tartalma</h4>";
+  txt += "<tbody>";
+  lista.forEach((element, index) => {
+    txt += `<tr>`;
+    for (const key in element) {
+      txt += `<td>${element[key]}</td>`;
+    }
+    txt += `<td> <button id = "${index}" type="button" class="gombTORLES">Törlés</button></td>`;
+    txt += `</tr>`;
+  });
+  txt += "</tbody></table>";
+  return txt;
+}
+export function kosarbaRak(lista1, lista2, id) {
+  const aktOBJ = {nev:lista1[id].nev, ar:lista1[id].ar+"ft"}
+  lista2.push(aktOBJ);
 
-/* export function kosarbaRak(lista1, lista2, id){
-  lista2.push(lista1[id]);
+
 }
 export function torol(lista, id) {
   lista.splice(id, 1);
 }
-
- */
