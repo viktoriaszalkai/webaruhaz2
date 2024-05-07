@@ -65,8 +65,8 @@ export function rendezMeret(lista, irany) {
 
 /* KOSARBA HELYEZES */
 export function kosarOsszeallit(lista) {
-  console.log(lista)
-  let txt = "<table class = 'table'>";
+  console.log(lista);
+  let txt = "<table class = 'tablazat'>";
   txt += "<h4>Kosár tartalma</h4>";
   txt += "<tbody>";
   lista.forEach((element, index) => {
@@ -78,14 +78,20 @@ export function kosarOsszeallit(lista) {
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
+  
   return txt;
 }
 export function kosarbaRak(lista1, lista2, id) {
-  const aktOBJ = {nev:lista1[id].nev, ar:lista1[id].ar+"ft"}
+  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar + "ft" };
   lista2.push(aktOBJ);
-
-
 }
 export function torol(lista, id) {
   lista.splice(id, 1);
 }
+
+/* export function osszegez(lista, obj,id){
+  const elem = {ar: lista[id].ar + "ft"};
+  obj += elem;
+}
+
+ */
