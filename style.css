@@ -1,6 +1,7 @@
 
 body{
     margin: auto;
+    place-items: center;
 }
 main{
     /* background-color: black; */
@@ -57,6 +58,7 @@ kosar{
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
+
 .kosar{
     background-color: black;
     border-radius: 20px;
@@ -65,6 +67,7 @@ kosar{
     color: white;
     display: grid;
     grid-template-columns: 1fr;
+    
 }
 .kosar h4{
     border-bottom: 2px solid white;
@@ -77,4 +80,7 @@ tablazat{
 td{
     border-bottom: 1px solid white;
     padding: 5px;
+}
+#quantity{
+    border-radius: 8px;
 }

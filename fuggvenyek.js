@@ -72,17 +72,24 @@ export function kosarOsszeallit(lista) {
   lista.forEach((element, index) => {
     txt += `<tr>`;
     for (const key in element) {
+      if(key != "db"){
       txt += `<td>${element[key]}</td>`;
+      }
     }
+    txt += `<td>
+        <label for="quantity">db</label>
+        <input type="number" class="quantity" id = "A${index}" name="quantity" min="1" max="5" value = ${element.db}>
+      </td>`;
     txt += `<td> <button id = "${index}" type="button" class="gombTORLES">Törlés</button></td>`;
+
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
-  
+
   return txt;
 }
 export function kosarbaRak(lista1, lista2, id) {
-  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar + "ft" };
+  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar + "ft", db:1};
   lista2.push(aktOBJ);
 }
 export function torol(lista, id) {

@@ -26,12 +26,11 @@ szuresEsemeny();
 export function init(tLISTA, kLISTA) {
   megjelenit(articleOsszeallit(tLISTA), kartyakELEM);
   megjelenit(kosarOsszeallit(kLISTA), kosarELEM);
-  /* megjelenit(kosarOsszeallit(rLISTA), kosarELEM); 
-  megjelenit(kosarOsszeallit(szLISTA), kosarELEM);  */
   kosarbaEsemeny(tetkokLISTA);
   torolEsemeny();
-/*   osszegzesEsemeny(); */
+  darabszamotValt();
 }
+
 
 /* SZURES */
 function szuresEsemeny() {
@@ -88,6 +87,14 @@ function kosarbaEsemeny() {
     init(tetkokLISTA, kosarLISTA);
   });
 }
+
+function darabszamotValt(){
+  const HANYSZOR = $(".quantity");
+  HANYSZOR.on("change", function(event){
+    console.log(event.target.value)
+  });
+}
+
 
 function torolEsemeny() {
   const torolGOMB = $(".gombTORLES");
