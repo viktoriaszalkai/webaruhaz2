@@ -69,31 +69,64 @@ export function kosarOsszeallit(lista) {
   let txt = "<table class = 'tablazat'>";
   txt += "<h4>Kosár tartalma</h4>";
   txt += "<tbody>";
+  let osszeg = 0;
   lista.forEach((element, index) => {
     txt += `<tr>`;
     for (const key in element) {
       if(key != "db"){
       txt += `<td>${element[key]}</td>`;
       }
+      if(key === "ar"){
+        osszeg += parseInt((element[key])*element.db);
+      }
     }
     txt += `<td>
-        <label for="quantity">db</label>
+       
         <input type="number" class="quantity" id = "A${index}" name="quantity" min="1" max="5" value = ${element.db}>
-      </td>`;
+        <label for="quantity">db</label>     
+        </td>`;
     txt += `<td> <button id = "${index}" type="button" class="gombTORLES">Törlés</button></td>`;
 
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
+  txt += `<p class = "vegosszeg ">végösszeg:${osszeg} </p>`
 
   return txt;
 }
 export function kosarbaRak(lista1, lista2, id) {
-  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar + "ft", db:1};
-  lista2.push(aktOBJ);
+  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar};
+  let index = 0;
+  while (
+    index < lista2.length &&
+    aktOBJ.nev !== lista2[index].nev
+  ) {
+    index++;
+  }
+  if (index < lista2.length) {
+    lista2[index].db++; 
+    
+    /* tobbszorValaszt(); */
+  } else {
+    aktOBJ.db = 1;
+    lista2.push(aktOBJ);
+  }
 }
+
+/* export function tobbszorValaszt(){
+  aktOBJ.db++;
+} */
 export function torol(lista, id) {
   lista.splice(id, 1);
+}
+
+export function kosarOsszegez(lista, hanyszor){
+  let osszeg = 0;
+  lista.forEach(element => {
+        osszeg += element.ar*element.db;
+  });
+  /* console.log(osszeg); */
+  return osszeg;
 }
 
 /* export function osszegez(lista, obj,id){
