@@ -78,7 +78,7 @@ export function kosarOsszeallit(lista) {
       }
       if(key === "ar"){
         osszeg += parseInt((element[key])*element.db);
-      }
+      } 
     }
     txt += `<td>
        
@@ -90,12 +90,12 @@ export function kosarOsszeallit(lista) {
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
-  txt += `<p class = "vegosszeg ">végösszeg:${osszeg} </p>`
+  txt += `<h5 class = "vegosszeg ">végösszeg: ${osszeg} ft</h5>`
 
   return txt;
 }
 export function kosarbaRak(lista1, lista2, id) {
-  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar};
+  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar, ft:"ft"};
   let index = 0;
   while (
     index < lista2.length &&
@@ -104,7 +104,7 @@ export function kosarbaRak(lista1, lista2, id) {
     index++;
   }
   if (index < lista2.length) {
-    lista2[index].db++; 
+    lista2[index].db+=1; 
     
     /* tobbszorValaszt(); */
   } else {
@@ -120,10 +120,10 @@ export function torol(lista, id) {
   lista.splice(id, 1);
 }
 
-export function kosarOsszegez(lista, hanyszor){
+export function kosarOsszegez(lista){
   let osszeg = 0;
   lista.forEach(element => {
-        osszeg += element.ar*element.db;
+        osszeg = element.ar*element.db;
   });
   /* console.log(osszeg); */
   return osszeg;

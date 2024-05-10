@@ -31,10 +31,10 @@ export function init(tLISTA) {
   
 }
 export function kosarInit(kosarLISTA){
-  megjelenit(kosarOsszeallit(kosarLISTA), kosarELEM);
   kosarbaEsemeny(tetkokLISTA);
+  megjelenit(kosarOsszeallit(kosarLISTA), kosarELEM);
   torolEsemeny();
-  darabszamotValt();
+  /* darabszamotValt(); */
 }
 
 /* SZURES */
@@ -88,9 +88,12 @@ function kosarbaEsemeny() {
     let aktId = event.target.id.replace("k", "");
     console.log(tetkokLISTA[aktId]);
     kosarbaRak(tetkokLISTA, kosarLISTA, aktId);
-    let osszeg = kosarOsszegez(kosarLISTA,0);
+    let osszeg;
+    osszeg += kosarOsszegez(kosarLISTA)
     console.log(osszeg);
+    init(tetkokLISTA);
     kosarInit(kosarLISTA);
+    
   });
 }
 
@@ -98,7 +101,7 @@ function darabszamotValt(){
   const HANYSZOR = $(".quantity");
   
   HANYSZOR.on("change", function(){
-    let osszeg = kosarOsszegez(kosarLISTA);
+    
     console.log(osszeg);
     
   });
