@@ -7,7 +7,7 @@ import {
   kosarbaRak,
   kosarOsszeallit,
   torol,
-  kosarOsszegez
+  kosarOsszegez,
   /* ,
   osszegez, */
 } from "./fuggvenyek.js";
@@ -29,9 +29,10 @@ szuresEsemeny();
 export function init(tLISTA) {
   megjelenit(articleOsszeallit(tLISTA), kartyakELEM);
   
+
 }
-export function kosarInit(kosarLISTA){
-  kosarbaEsemeny(tetkokLISTA);
+export function kosarInit(kosarLISTA,lista) {
+  kosarbaEsemeny(lista);
   megjelenit(kosarOsszeallit(kosarLISTA), kosarELEM);
   torolEsemeny();
   /* darabszamotValt(); */
@@ -45,6 +46,8 @@ function szuresEsemeny() {
     const szLISTA = keres(tetkokLISTA, kereseoSzoveg);
     //console.log(szLISTA);
     init(szLISTA);
+    kosarInit(kosarLISTA,szLISTA)
+    
   });
 }
 
@@ -61,53 +64,54 @@ function rendezEsemeny() {
   arCS.on("click", function () {
     const rLISTA = rendezAr(tetkokLISTA, irany * -1);
     //console.log(rLISTA);
-    init(rLISTA);
+    init(tetkokLISTA);
+    kosarInit(kosarLISTA.rLISTA);
   });
   arN.on("click", function () {
     const rLISTA = rendezAr(tetkokLISTA, irany);
     //console.log(rLISTA);
-    init(rLISTA);
+    init(tetkokLISTA);
+    kosarInit(kosarLISTA,rLISTA);
   });
   meretCS.on("click", function () {
     const rLISTA = rendezMeret(tetkokLISTA, irany * -1);
     //console.log(rLISTA);
-    init(rLISTA);
+    init(tetkokLISTA);
+    kosarInit(kosarLISTA,rLISTA);
   });
   meretN.on("click", function () {
     const rLISTA = rendezMeret(tetkokLISTA, irany);
     //console.log(rLISTA);
-    init(rLISTA);
+    init(tetkokLISTA);
+    kosarInit(kosarLISTA,rLISTA);
+    
   });
 }
 
 /* KOSAR */
 
-function kosarbaEsemeny() {
+function kosarbaEsemeny(lista) {
   const kosarbaGOMB = $(".gomb");
   kosarbaGOMB.on("click", function (event) {
     let aktId = event.target.id.replace("k", "");
-    console.log(tetkokLISTA[aktId]);
-    kosarbaRak(tetkokLISTA, kosarLISTA, aktId);
+    console.log(lista[aktId]);
+    kosarbaRak(lista, kosarLISTA, aktId);
     let osszeg;
-    osszeg += kosarOsszegez(kosarLISTA)
+    osszeg += kosarOsszegez(kosarLISTA);
     console.log(osszeg);
-    init(tetkokLISTA);
-    kosarInit(kosarLISTA);
-    
+    init(lista);
+    kosarInit(kosarLISTA,lista);
   });
 }
 
-function darabszamotValt(){
+function darabszamotValt() {
   const HANYSZOR = $(".quantity");
-  
-  HANYSZOR.on("change", function(){
-    
-    console.log(osszeg);
-    
+
+  HANYSZOR.on("change", function () {
+    //leszedem melyik change, és annak az objektumnak a dbszámát a valuera módosítom
+    //utána meghívom az árösszegzés metódust
   });
-
 }
-
 
 function torolEsemeny() {
   const torolGOMB = $(".gombTORLES");
