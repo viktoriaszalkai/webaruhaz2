@@ -158,7 +158,9 @@ export function urlapOsszeallit() {
   txt += `</fieldset>`;
   txt += `</form>`;
   txt +=`<br>`;
+  txt += `<div class = "mindenKESZ">`;
   txt += `<button type="button" class="gombMINDENKESZ">Vásárlás befejezése</button>`;
+  txt += `</div>`;
 
   return txt;
 }

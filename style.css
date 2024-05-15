@@ -108,5 +108,10 @@ input{
 @media only screen and (max-width: 500px) {
     .kosar{
         width: 90%;
+        /* place-items: center; */
     }
+   label{
+    width: 20%;
+   }
+
   }
