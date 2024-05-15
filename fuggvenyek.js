@@ -73,12 +73,13 @@ export function kosarOsszeallit(lista) {
   lista.forEach((element, index) => {
     txt += `<tr>`;
     for (const key in element) {
-      if(key != "db"){
-      txt += `<td>${element[key]}</td>`;
+      if (key != "db") {
+        txt += `<td>${element[key]}</td>`;
       }
-      if(key === "ar"){
-        osszeg += parseInt((element[key])*element.db);
-      } 
+      if (key === "ar") {
+        osszeg += parseInt(element[key] * element.db);
+        console.log("kosarosszeallit" + element.db);
+      }
     }
     txt += `<td>
        
@@ -90,22 +91,21 @@ export function kosarOsszeallit(lista) {
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
-  txt += `<h5 class = "vegosszeg ">végösszeg: ${osszeg} ft</h5>`
+  txt += `<h5 class = "vegosszeg ">végösszeg: ${osszeg} ft</h5>`;
+  txt += `<button type="button" class="gombKESZ">Tovább</button>`;
 
   return txt;
 }
 export function kosarbaRak(lista1, lista2, id) {
-  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar, ft:"ft"};
+  const aktOBJ = { nev: lista1[id].nev, ar: lista1[id].ar, ft: "ft" };
   let index = 0;
-  while (
-    index < lista2.length &&
-    aktOBJ.nev !== lista2[index].nev
-  ) {
+  while (index < lista2.length && aktOBJ.nev !== lista2[index].nev) {
     index++;
   }
   if (index < lista2.length) {
-    lista2[index].db+=1; 
-    
+    lista2[index].db += 1;
+    console.log("kosarbarak", +lista2[index].db);
+
     /* tobbszorValaszt(); */
   } else {
     aktOBJ.db = 1;
@@ -120,18 +120,51 @@ export function torol(lista, id) {
   lista.splice(id, 1);
 }
 
-export function kosarOsszegez(lista){
+export function kosarOsszegez(lista) {
   let osszeg = 0;
-  lista.forEach(element => {
-        osszeg = element.ar*element.db;
+  lista.forEach((element) => {
+    osszeg = element.ar * element.db;
+    console.log("kosarosszegez" + element.db);
   });
   /* console.log(osszeg); */
   return osszeg;
 }
 
-/* export function osszegez(lista, obj,id){
-  const elem = {ar: lista[id].ar + "ft"};
-  obj += elem;
+export function urlapOsszeallit() {
+  let txt = "";
+  txt += "<h5>Köszönjük, hogy a csapatunkat választottad!</h5>";
+  txt +=
+    "<p>Kérlek add meg az adataidat, hogy időpont egyeztetéssel kapcsolatban fel tudjuk venni veled a kapcsolatot!</p>";
+  txt += `<form class = "urlap row" action="#" method="get">`;
+  txt += `<fieldset >`;
+  txt += `<div `;
+    txt += `<div>`;
+      txt += `<label for="neve" >Név:</label>`;
+      txt += `<input type="text" id="neve" name="nev">`;
+    txt += `</div>`;
+    txt += `<div>`;
+      txt += ` <label for="szuldatum">Szül. dátum:</label>`;
+      txt += `<input type="date" id="szuldatum" name="szuldatum">`;
+    txt += `</div>`;
+    txt += `<div>`;
+      txt += `<label for="email">E-mail cím:</label>`;
+      txt += `<input type="email" id="email" name="email"pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">`;
+    txt += `</div>`;
+    txt += `<div>`;
+      txt += `<label for="telefon">Telefonszám:</label>`;
+      txt += `<input type="tel" id="telefon" name="telefon">`;
+    txt += `</div>`;
+  txt += "</div>";
+  txt += `</fieldset>`;
+  txt += `</form>`;
+  txt +=`<br>`;
+  txt += `<button type="button" class="gombMINDENKESZ">Tovább</button>`;
+
+  return txt;
 }
 
- */
+export function  utolsoUzenet(){
+  let txt = "";
+  txt += "<h5>Köszönjük a bizalmadat, fel fogjuk veled venni a kapcsolatot!</h5>";
+  return txt;
+}
