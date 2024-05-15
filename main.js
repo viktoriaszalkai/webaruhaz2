@@ -21,7 +21,7 @@ kartyakELEM.html(articleOsszeallit(tetkokLISTA));
 
 const kosarLISTA = [];
 init(tetkokLISTA);
-kosarInit(kosarLISTA);
+kosarInit(kosarLISTA,tetkokLISTA);
 
 const KOSARMENU = $("#kosarmenu");
 
@@ -30,7 +30,7 @@ szuresEsemeny();
 
 export function init(tLISTA) {
   megjelenit(articleOsszeallit(tLISTA), kartyakELEM);
-  
+ 
   
   /* kosarbaEsemeny(tLISTA); */
 }
@@ -38,10 +38,7 @@ export function kosarInit(kosarLISTA, lista) {
   kosarbaEsemeny(lista);
   megjelenit(kosarOsszeallit(kosarLISTA), kosarELEM);
   torolEsemeny();
-  
-  
-
-  
+  vasarlasKesz();
 
   /* darabszamotValt(); */
 }
@@ -72,7 +69,7 @@ function rendezEsemeny() {
     const rLISTA = rendezAr(tetkokLISTA, irany * -1);
     //console.log(rLISTA);
     init(tetkokLISTA);
-    kosarInit(kosarLISTA.rLISTA);
+    kosarInit(kosarLISTA,rLISTA);
   });
   arN.on("click", function () {
     const rLISTA = rendezAr(tetkokLISTA, irany);
@@ -99,6 +96,7 @@ function rendezEsemeny() {
 function kosarbaEsemeny(lista) {
   const kosarbaGOMB = $(".gomb");
   kosarbaGOMB.on("click", function (event) {
+    kosarELEM.show();
     let aktId = event.target.id.replace("k", "");
     console.log(lista[aktId]);
     kosarbaRak(lista, kosarLISTA, aktId);
@@ -124,6 +122,9 @@ function torolEsemeny() {
   torolGOMB.on("click", function (event) {
     let aktId = event.target.id;
     torol(kosarLISTA, aktId);
+    if(kosarLISTA.length==0){
+      kosarELEM.hide();
+    }
     kosarInit(kosarLISTA);
   });
 }
@@ -146,16 +147,16 @@ function vasarlasKesz() {
   BEFEJEZES.on("click", function () {
     kosarELEM.empty();
     megjelenit(urlapOsszeallit(), kosarELEM);
+    utolsoUzenetKiir();
   });
+  
 }
-vasarlasKesz();
+
 function utolsoUzenetKiir() {
   const gombKESZ = $(".gombMINDENKESZ");
-  //console.log("MUKODOK :(");
   gombKESZ.on("click", function () {
-    console.log("MUKODOK :(");
-    // megjelenit(utolsoUzenet(), kosarELEM);
+    megjelenit(utolsoUzenet(), kosarELEM);
   });
 }
 
-utolsoUzenetKiir();
+

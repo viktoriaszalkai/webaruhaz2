@@ -158,13 +158,14 @@ export function urlapOsszeallit() {
   txt += `</fieldset>`;
   txt += `</form>`;
   txt +=`<br>`;
-  txt += `<button type="button" class="gombMINDENKESZ">Tovább</button>`;
+  txt += `<button type="button" class="gombMINDENKESZ">Vásárlás befejezése</button>`;
 
   return txt;
 }
 
 export function  utolsoUzenet(){
   let txt = "";
-  txt += "<h5>Köszönjük a bizalmadat, fel fogjuk veled venni a kapcsolatot!</h5>";
+  txt += `<h5>Köszönjük a bizalmadat!</h5>`;
+  txt += `<p>Csapatunk egyik tagja fel fogja venni veled a kapcsolatot.</p>`;
   return txt;
 }
