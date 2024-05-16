@@ -135,32 +135,32 @@ export function urlapOsszeallit() {
   txt += "<h5>Köszönjük, hogy a csapatunkat választottad!</h5>";
   txt +=
     "<p>Kérlek add meg az adataidat, hogy időpont egyeztetéssel kapcsolatban fel tudjuk venni veled a kapcsolatot!</p>";
-  txt += `<form class = "urlap row" action="#" method="get">`;
-  txt += `<fieldset >`;
-  txt += `<div `;
+/*     txt += `<div class="FORM"> `; */
+    txt += `<form class = "urlap row" action="#" method="get">`;
+    txt += `<fieldset >`;
     txt += `<div>`;
-      txt += `<label for="neve" >Név:</label>`;
+      txt += `<label for="neve" >név:</label>`;
       txt += `<input type="text" id="neve" name="nev">`;
     txt += `</div>`;
     txt += `<div>`;
-      txt += ` <label for="szuldatum">Szül. dátum:</label>`;
+      txt += ` <label for="szuldatum">születési dátum:</label>`;
       txt += `<input type="date" id="szuldatum" name="szuldatum">`;
     txt += `</div>`;
     txt += `<div>`;
-      txt += `<label for="email">E-mail cím:</label>`;
+      txt += `<label for="email">e-mail:</label>`;
       txt += `<input type="email" id="email" name="email"pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">`;
     txt += `</div>`;
     txt += `<div>`;
-      txt += `<label for="telefon">Telefonszám:</label>`;
+      txt += `<label for="telefon">tel.:</label>`;
       txt += `<input type="tel" id="telefon" name="telefon">`;
     txt += `</div>`;
-  txt += "</div>";
   txt += `</fieldset>`;
   txt += `</form>`;
   txt +=`<br>`;
   txt += `<div class = "mindenKESZ">`;
   txt += `<button type="button" class="gombMINDENKESZ">Vásárlás befejezése</button>`;
   txt += `</div>`;
+ /*  txt += `</div>`; */
 
   return txt;
 }
