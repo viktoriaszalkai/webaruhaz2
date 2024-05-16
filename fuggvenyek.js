@@ -144,7 +144,7 @@ export function urlapOsszeallit() {
     txt += `</div>`;
     txt += `<div>`;
       txt += ` <label for="szuldatum">születési dátum:</label>`;
-      txt += `<input type="date" id="szuldatum" name="szuldatum">`;
+      txt += `<input type="text" id="szuldatum" name="szuldatum">`;
     txt += `</div>`;
     txt += `<div>`;
       txt += `<label for="email">e-mail:</label>`;
